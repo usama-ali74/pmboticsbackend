@@ -1,0 +1,85 @@
+                                                    API's Testing Json
+
+
+project
+{
+    "title": "FYPMANAGER",
+    "batch": "19B",
+    "description": "fyp tool",
+    "domain": "Project Management tool",
+    "no_of_group_members":3,
+    "supervisor": 5,
+    "department": 1
+}
+
+
+
+signUp
+
+{
+    "email": "samplefyppanel@gmail.com",
+    "password": "usama@321",
+    "name": "example",
+    "facultyid": "111",
+    "designation": "lecturer"
+}
+
+login
+{
+    "email": "samplefyppanel@gmail.com",
+    "password": "usama@321"
+}
+
+
+milestone
+{
+"milestone_name":"Fall-2023-M1",
+"document_submissin_date":"2023-01-20",
+"milestone_defending_date":"2023-01-23",
+"milestone_details":"All work submitted according to POC",
+"fyp_panel":1
+}
+
+
+join query 
+-- SQLite
+select core_fyppanel.id from core_fyppanel 
+join core_user on core_fyppanel.user_id=core_user.id 
+-- where core_user.email = "fypcord1@gmail.com"
+
+create notifications
+{
+"title":"Meeting",
+"isactive":"True",
+"description":"Hai lekin abhi nhi pata"
+}
+
+teamMember creation api
+{   
+    "role":"student",
+    "email": "new@students.uit.edu",
+    "password": "usama@321",
+    "name": "Ali",
+    "rollno": "19b-01111-cs",
+    "seatno":"ct-123456",
+    "enrollmentno":"UITU/4685/2019",
+    "phoneno":"03134744647",
+    "department":1
+}
+
+supervisor creation api
+{
+    "role":"supervisor",
+    "email": "supervisor4@sup.uit.edu",
+    "password": "usama@321",
+    "name": "Miss Marvi",
+    "faculty_no":"12525",
+    "field_of_interest":"Web development",
+    "phone_no":"03121254551",
+    "department":3
+}
+
+#final project code
+            pro = project.objects.get(id=request.data.get("project"), deleted_at=None)
+            pro.grade += average
+            pro.save()
